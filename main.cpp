@@ -8,6 +8,7 @@
 #include <string>
 #include <numeric>
 #include <algorithm>
+//This section displays the menu and gets the input from the user regarding the choice while making sure it is not a letter
 int displayMenu() {
     std::cout << "Option 1: Add a Grade" << std::endl;
     std::cout << "Option 2: Display All Grades" << std::endl;
@@ -34,7 +35,7 @@ int displayMenu() {
         }
     return choice;
 }
-
+//This section is the options that the user gets to use
 void startMenu() {
     std::vector<double> grades;
     int input;
@@ -51,6 +52,7 @@ void startMenu() {
         input = displayMenu();
         switch (input) {
             case 1:
+                //This section allows the user to input a valid grade
                 std::cout << "Enter a grade" << std::endl;
                 std::cin >> gradeInput;
                 do {
@@ -65,6 +67,7 @@ void startMenu() {
                 hasData = true;
                 break;
             case 2:
+                //This section allows the user to look through all grades while making sure there is a grade in the vector
                 if (hasData == false) {
                     std::cout << "Please Enter A Grade First" << std::endl;
                     break;
@@ -75,6 +78,7 @@ void startMenu() {
                 }
                 break;
             case 3:
+                //This section allows the user to look at the average of the grades in the vector while making sure there is a grade in the vector
                 if (hasData == false) {
                     std::cout << "Please Enter A Grade First" << std::endl;
                     break;
@@ -86,6 +90,7 @@ void startMenu() {
                 std::cout << "The average of your grades are " << avg << std::endl;
                 break;
             case 4:
+                //This section allows the user to see the highest and lowest grade in the vector while making sure there is a grade in the vector
                 if (hasData == false) {
                     std::cout << "Please Enter A Grade First" << std::endl;
                     break;
@@ -106,6 +111,7 @@ void startMenu() {
                 std::cout << "Your lowest grade is " << lGrade << std::endl;
                 break;
             case 5:
+                //This section allows the user to input a threshold and the program will find out how many grades are above that threshold
                 if (hasData == false) {
                     std::cout << "Please Enter A Grade First" << std::endl;
                     break;
@@ -120,14 +126,16 @@ void startMenu() {
                 std::cout << "There are " << total << " grades above the threshold" << std::endl;
                 break;
             case 6:
+                //This section exits the code when 6 is received
                 std::cout << "Exiting the Program." << std::endl;
                 std::cout << "Goodbye!" << std::endl;
                 break;
             default:
+                //This section makes sure that the input is between 1-6
                 std::cout << "That is an invalid choice. Please choose 1-6" << std::endl;
                 break;
         }
-
+        //This section makes sure that the program ends when the input is 6
     } while(input != 6);
 }
 int main() {
